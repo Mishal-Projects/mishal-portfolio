@@ -130,6 +130,7 @@
         .hero-buttons {
             display: flex;
             gap: 20px;
+            flex-wrap: wrap;
         }
 
         .btn-primary {
@@ -226,6 +227,59 @@
             width: 100px;
             height: 4px;
             background: var(--netflix-red);
+        }
+
+        /* Resume Section */
+        .resume-section {
+            background: linear-gradient(135deg, rgba(229, 9, 20, 0.1), rgba(20, 20, 20, 0.5));
+            border: 2px solid rgba(229, 9, 20, 0.3);
+            border-radius: 10px;
+            padding: 60px;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .resume-preview {
+            max-width: 800px;
+            margin: 0 auto 40px;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(229, 9, 20, 0.3);
+        }
+
+        .resume-preview iframe {
+            width: 100%;
+            height: 600px;
+            border: none;
+        }
+
+        .resume-actions {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .btn-download {
+            padding: 18px 50px;
+            background: var(--netflix-red);
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 18px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            box-shadow: 0 10px 30px rgba(229, 9, 20, 0.4);
+        }
+
+        .btn-download:hover {
+            background: #f40612;
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(229, 9, 20, 0.6);
         }
 
         /* Experience Section */
@@ -547,6 +601,14 @@
             .section-title {
                 font-size: 32px;
             }
+
+            .resume-section {
+                padding: 30px 20px;
+            }
+
+            .resume-preview iframe {
+                height: 400px;
+            }
         }
     </style>
 </head>
@@ -557,6 +619,7 @@
             <div class="logo">MISHAL</div>
             <ul class="nav-links">
                 <li><a href="#about">About</a></li>
+                <li><a href="#resume">Resume</a></li>
                 <li><a href="#experience">Experience</a></li>
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#projects">Projects</a></li>
@@ -574,8 +637,9 @@
                 <p class="subtitle">Information Science Engineering Student | AI Enthusiast | Game QA Tester</p>
                 <p class="summary">A goal-oriented Information Science Engineering student with a passion for mastering emerging technologies. Skilled at transforming ideas into actionable projects, with a strong focus on innovation. Dedicated to building a career that merges technical expertise with real-world impact.</p>
                 <div class="hero-buttons">
+                    <a href="#resume" class="btn-primary">📄 View Resume</a>
                     <a href="#contact" class="btn-primary">📧 Get In Touch</a>
-                    <a href="https://github.com/Mishal2004" target="_blank" class="btn-secondary">View GitHub</a>
+                    <a href="https://github.com/MishalHQ" target="_blank" class="btn-secondary">View GitHub</a>
                 </div>
             </div>
             <div class="hero-image">
@@ -588,6 +652,24 @@
                         <p>🎓 B.M.S.I.T (2022-2026)</p>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resume Section -->
+    <section id="resume">
+        <h2 class="section-title">Resume</h2>
+        <div class="resume-section">
+            <div class="resume-preview">
+                <iframe src="https://nyc3.digitaloceanspaces.com/bhindi-drive/files/d94d6940-3136-4b85-9bdd-71fe436ec164/2025-12-05T13-43-07-759Z-cb29ea17-M_A_Mohammed_Mishal_Resume.pdf" title="M A Mohammed Mishal Resume"></iframe>
+            </div>
+            <div class="resume-actions">
+                <a href="https://nyc3.digitaloceanspaces.com/bhindi-drive/files/d94d6940-3136-4b85-9bdd-71fe436ec164/2025-12-05T13-43-07-759Z-cb29ea17-M_A_Mohammed_Mishal_Resume.pdf" download="M_A_Mohammed_Mishal_Resume.pdf" class="btn-download">
+                    📥 Download Resume
+                </a>
+                <a href="https://nyc3.digitaloceanspaces.com/bhindi-drive/files/d94d6940-3136-4b85-9bdd-71fe436ec164/2025-12-05T13-43-07-759Z-cb29ea17-M_A_Mohammed_Mishal_Resume.pdf" target="_blank" class="btn-secondary">
+                    🔍 View Full Screen
+                </a>
             </div>
         </div>
     </section>
@@ -744,7 +826,7 @@
         </p>
         <div class="social-links">
             <a href="mailto:11b51570mishal@gmail.com" class="social-link" title="Email">📧</a>
-            <a href="https://github.com/Mishal2004" class="social-link" title="GitHub" target="_blank">💻</a>
+            <a href="https://github.com/MishalHQ" class="social-link" title="GitHub" target="_blank">💻</a>
             <a href="https://www.linkedin.com/in/m-a-mohammed-mishal-1b473b265" class="social-link" title="LinkedIn" target="_blank">💼</a>
             <a href="https://www.instagram.com/m_mishal._/" class="social-link" title="Instagram" target="_blank">📷</a>
             <a href="tel:+918660455157" class="social-link" title="Phone">📞</a>

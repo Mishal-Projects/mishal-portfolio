@@ -45,18 +45,21 @@
             border-radius: 50%;
             filter: blur(100px);
             opacity: 0.2;
-            animation: float-orb 15s ease-in-out infinite;
+            animation: float-orb 20s ease-in-out infinite;
         }
 
         @keyframes float-orb {
             0%, 100% {
-                transform: translate(0, 0) scale(1);
+                transform: translate(0, 0) scale(1) rotate(0deg);
             }
-            33% {
-                transform: translate(50px, -50px) scale(1.1);
+            25% {
+                transform: translate(100px, -80px) scale(1.2) rotate(90deg);
             }
-            66% {
-                transform: translate(-30px, 30px) scale(0.9);
+            50% {
+                transform: translate(-50px, 60px) scale(0.8) rotate(180deg);
+            }
+            75% {
+                transform: translate(80px, 40px) scale(1.1) rotate(270deg);
             }
         }
 
@@ -71,6 +74,16 @@
                 linear-gradient(90deg, rgba(229, 9, 20, 0.03) 1px, transparent 1px);
             background-size: 50px 50px;
             opacity: 0.5;
+            animation: gridMove 30s linear infinite;
+        }
+
+        @keyframes gridMove {
+            0% {
+                transform: translate(0, 0);
+            }
+            100% {
+                transform: translate(50px, 50px);
+            }
         }
 
         .spotlight {
@@ -122,6 +135,16 @@
             font-family: 'Inter', sans-serif;
             text-transform: uppercase;
             position: relative;
+            animation: logoGlow 3s ease-in-out infinite;
+        }
+
+        @keyframes logoGlow {
+            0%, 100% {
+                text-shadow: 0 0 10px rgba(229, 9, 20, 0.5);
+            }
+            50% {
+                text-shadow: 0 0 20px rgba(229, 9, 20, 0.8), 0 0 30px rgba(229, 9, 20, 0.6);
+            }
         }
 
         .logo::after {
@@ -172,6 +195,7 @@
 
         .nav-links a:hover {
             color: var(--netflix-red);
+            transform: translateY(-2px);
         }
 
         /* Mobile Menu */
@@ -224,6 +248,18 @@
             margin-bottom: 20px;
             line-height: 1.1;
             letter-spacing: -2px;
+            animation: slideInFromLeft 1s ease-out;
+        }
+
+        @keyframes slideInFromLeft {
+            0% {
+                opacity: 0;
+                transform: translateX(-100px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
         }
 
         .hero-text .name-highlight {
@@ -231,6 +267,17 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            animation: gradientShift 3s ease infinite;
+            background-size: 200% 200%;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
         }
 
         .hero-text .subtitle {
@@ -239,6 +286,16 @@
             margin-bottom: 20px;
             font-weight: 500;
             line-height: 1.5;
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
         }
 
         .current-role {
@@ -253,11 +310,24 @@
             color: white;
             box-shadow: 0 5px 20px rgba(229, 9, 20, 0.3);
             transition: all 0.3s ease;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+                box-shadow: 0 5px 20px rgba(229, 9, 20, 0.3);
+            }
+            50% {
+                transform: scale(1.05);
+                box-shadow: 0 8px 30px rgba(229, 9, 20, 0.5);
+            }
         }
 
         .current-role:hover {
-            transform: translateY(-2px);
+            transform: translateY(-2px) scale(1.05);
             box-shadow: 0 8px 30px rgba(229, 9, 20, 0.5);
+            animation: none;
         }
 
         .hero-text .summary {
@@ -290,6 +360,23 @@
             gap: 10px;
             box-shadow: 0 8px 25px rgba(229, 9, 20, 0.4);
             white-space: nowrap;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .btn-primary:hover::before {
+            left: 100%;
         }
 
         .btn-primary:hover {
@@ -312,6 +399,23 @@
             align-items: center;
             justify-content: center;
             white-space: nowrap;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-secondary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(229, 9, 20, 0.3), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .btn-secondary:hover::before {
+            left: 100%;
         }
 
         .btn-secondary:hover {
@@ -324,7 +428,7 @@
             position: relative;
             display: inline-flex;
             align-items: stretch;
-            z-index: 1000;
+            z-index: 10000 !important;
         }
 
         .github-dropdown > .btn-secondary {
@@ -334,9 +438,8 @@
         .github-menu {
             display: none;
             position: absolute;
-            top: 100%;
+            top: calc(100% + 10px);
             left: 0;
-            margin-top: 10px;
             background: rgba(20, 20, 20, 0.98);
             backdrop-filter: blur(20px);
             border: 2px solid rgba(229, 9, 20, 0.4);
@@ -344,7 +447,7 @@
             min-width: 250px;
             box-shadow: 0 15px 50px rgba(0, 0, 0, 0.7);
             overflow: hidden;
-            z-index: 9999;
+            z-index: 99999 !important;
         }
 
         .github-dropdown:hover .github-menu {
@@ -404,7 +507,7 @@
         }
 
         .profile-card:hover {
-            transform: translateY(-10px);
+            transform: translateY(-10px) rotateY(5deg);
             box-shadow: 0 30px 80px rgba(229, 9, 20, 0.3);
         }
 
@@ -417,6 +520,16 @@
             overflow: hidden;
             box-shadow: 0 0 50px rgba(229, 9, 20, 0.6);
             position: relative;
+            animation: borderPulse 3s ease-in-out infinite;
+        }
+
+        @keyframes borderPulse {
+            0%, 100% {
+                box-shadow: 0 0 50px rgba(229, 9, 20, 0.6);
+            }
+            50% {
+                box-shadow: 0 0 80px rgba(229, 9, 20, 0.9), 0 0 100px rgba(229, 9, 20, 0.6);
+            }
         }
 
         .profile-img {
@@ -428,7 +541,7 @@
         }
 
         .profile-card:hover .profile-img {
-            transform: scale(1.05);
+            transform: scale(1.1);
         }
 
         .contact-info {
@@ -464,6 +577,18 @@
             position: relative;
             display: inline-block;
             letter-spacing: -2px;
+            animation: titleSlide 1s ease-out;
+        }
+
+        @keyframes titleSlide {
+            0% {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
         }
 
         .section-title::after {
@@ -475,6 +600,114 @@
             height: 5px;
             background: linear-gradient(90deg, var(--netflix-red), transparent);
             border-radius: 3px;
+            animation: lineExpand 1s ease-out;
+        }
+
+        @keyframes lineExpand {
+            0% {
+                width: 0;
+            }
+            100% {
+                width: 120px;
+            }
+        }
+
+        /* Suggestion Box Section */
+        .suggestion-section {
+            background: linear-gradient(145deg, rgba(229, 9, 20, 0.1), rgba(20, 20, 20, 0.6));
+            border: 2px solid rgba(229, 9, 20, 0.4);
+            border-radius: 20px;
+            padding: 60px;
+            margin-top: 80px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .suggestion-form {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 30px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 16px;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 10px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 18px 25px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            color: white;
+            font-size: 16px;
+            font-family: 'Inter', sans-serif;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--netflix-red);
+            background: rgba(255, 255, 255, 0.08);
+            box-shadow: 0 0 20px rgba(229, 9, 20, 0.3);
+        }
+
+        .form-group textarea {
+            min-height: 180px;
+            resize: vertical;
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: var(--netflix-gray);
+        }
+
+        .btn-submit {
+            padding: 20px 60px;
+            background: linear-gradient(135deg, var(--netflix-red), #c40812);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 35px rgba(229, 9, 20, 0.5);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-submit::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .btn-submit:hover::before {
+            left: 100%;
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 15px 50px rgba(229, 9, 20, 0.7);
+        }
+
+        .btn-submit:active {
+            transform: translateY(-2px);
         }
 
         /* Resume Section */
@@ -496,6 +729,16 @@
             border-radius: 16px;
             overflow: hidden;
             box-shadow: 0 25px 70px rgba(229, 9, 20, 0.4);
+            animation: floatUp 3s ease-in-out infinite;
+        }
+
+        @keyframes floatUp {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
         }
 
         .resume-preview iframe {
@@ -525,6 +768,23 @@
             align-items: center;
             gap: 12px;
             box-shadow: 0 10px 35px rgba(229, 9, 20, 0.5);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-download::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .btn-download:hover::before {
+            left: 100%;
         }
 
         .btn-download:hover {
@@ -555,7 +815,7 @@
 
         .experience-card:hover {
             background: linear-gradient(145deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.04));
-            transform: translateX(15px);
+            transform: translateX(15px) scale(1.02);
             box-shadow: 0 15px 40px rgba(229, 9, 20, 0.2);
         }
 
@@ -614,6 +874,16 @@
             color: var(--netflix-red);
             font-weight: 900;
             font-size: 18px;
+            animation: blink 2s ease-in-out infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.5;
+            }
         }
 
         /* Skills Section */
@@ -641,7 +911,7 @@
         .skill-category:hover {
             border-color: var(--netflix-red);
             background: linear-gradient(145deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.04));
-            transform: translateY(-8px) scale(1);
+            transform: translateY(-8px) scale(1) rotate(2deg);
             box-shadow: 0 20px 50px rgba(229, 9, 20, 0.3);
         }
 
@@ -685,7 +955,7 @@
         }
 
         .project-card:hover {
-            transform: translateY(-15px);
+            transform: translateY(-15px) rotateX(5deg);
             box-shadow: 0 25px 60px rgba(229, 9, 20, 0.4);
             border-color: var(--netflix-red);
         }
@@ -763,7 +1033,7 @@
 
         .tech-tag:hover {
             background: var(--netflix-red);
-            transform: translateY(-2px);
+            transform: translateY(-2px) scale(1.1);
         }
 
         /* Certifications */
@@ -792,7 +1062,7 @@
 
         .cert-item:hover {
             background: linear-gradient(145deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.04));
-            transform: translateX(10px);
+            transform: translateX(10px) scale(1.05);
             border-left-width: 6px;
             box-shadow: 0 15px 40px rgba(229, 9, 20, 0.3);
         }
@@ -854,12 +1124,23 @@
             font-size: 28px;
             transition: all 0.4s ease;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            animation: bounce 2s ease-in-out infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
         }
 
         .social-link:hover {
             background: var(--netflix-red);
-            transform: scale(1.2) rotate(5deg);
+            transform: scale(1.2) rotate(360deg);
             box-shadow: 0 15px 50px rgba(229, 9, 20, 0.6);
+            animation: none;
         }
 
         /* Footer */
@@ -972,7 +1253,7 @@
                 font-size: 36px;
             }
 
-            .resume-section {
+            .resume-section, .suggestion-section {
                 padding: 30px 20px;
                 margin: 0;
             }
@@ -1102,6 +1383,7 @@
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#certifications">Certifications</a></li>
+                <li><a href="#suggestions">Suggestions</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </div>
@@ -1319,6 +1601,31 @@
         </div>
     </section>
 
+    <!-- Suggestions Section -->
+    <section id="suggestions">
+        <h2 class="section-title">Share Your Suggestions</h2>
+        <div class="suggestion-section">
+            <p style="font-size: 18px; color: var(--netflix-light-gray); margin-bottom: 40px; text-align: center; line-height: 1.8;">
+                I value your feedback! Whether it's a recommendation, suggestion, or constructive criticism, I'd love to hear from you. Your insights help me grow and improve.
+            </p>
+            <form class="suggestion-form" id="suggestionForm">
+                <div class="form-group">
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Your Email</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                </div>
+                <div class="form-group">
+                    <label for="suggestion">Your Suggestion / Recommendation</label>
+                    <textarea id="suggestion" name="suggestion" placeholder="Share your thoughts, suggestions, or recommendations..." required></textarea>
+                </div>
+                <button type="submit" class="btn-submit">📤 Submit Suggestion</button>
+            </form>
+        </div>
+    </section>
+
     <!-- Contact Section -->
     <section id="contact" class="contact-section">
         <h2 class="section-title">Let's Connect</h2>
@@ -1413,6 +1720,29 @@
         const certItems = document.querySelectorAll('.cert-item');
         certItems.forEach((item, index) => {
             item.style.animationDelay = `${index * 0.05}s`;
+        });
+
+        // Suggestion Form Handler
+        document.getElementById('suggestionForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const suggestion = document.getElementById('suggestion').value;
+            
+            // Create mailto link with form data
+            const subject = encodeURIComponent(`Suggestion from ${name}`);
+            const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nSuggestion:\n${suggestion}`);
+            const mailtoLink = `mailto:11b51570mishal@gmail.com?subject=${subject}&body=${body}`;
+            
+            // Open email client
+            window.location.href = mailtoLink;
+            
+            // Show success message
+            alert('Thank you for your suggestion! Your email client will open to send the message.');
+            
+            // Reset form
+            this.reset();
         });
     </script>
 </body>

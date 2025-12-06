@@ -342,9 +342,11 @@
             to { opacity: 1; }
         }
 
+        /* Profile Image Section - New Design */
         .hero-image {
-            flex: 0 0 350px;
+            flex: 0 0 380px;
             animation: fadeInScale 1.2s ease-out;
+            position: relative;
         }
 
         @keyframes fadeInScale {
@@ -358,20 +360,73 @@
             }
         }
 
+        .profile-container {
+            position: relative;
+            width: 380px;
+            height: 480px;
+        }
+
+        .profile-container::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            background: linear-gradient(45deg, var(--netflix-red), #ff4444, var(--netflix-red));
+            border-radius: 20px;
+            z-index: -1;
+            animation: rotate-gradient 3s linear infinite;
+            background-size: 200% 200%;
+        }
+
+        @keyframes rotate-gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
         .profile-img {
-            width: 350px;
-            height: 450px;
+            width: 100%;
+            height: 100%;
             object-fit: cover;
             object-position: center top;
             border-radius: 15px;
-            border: 4px solid var(--netflix-red);
-            box-shadow: 0 20px 60px rgba(229, 9, 20, 0.4);
+            box-shadow: 0 25px 70px rgba(229, 9, 20, 0.5);
             transition: all 0.5s ease;
+            position: relative;
+            z-index: 1;
         }
 
         .profile-img:hover {
-            transform: scale(1.05) rotate(2deg);
-            box-shadow: 0 30px 80px rgba(229, 9, 20, 0.6);
+            transform: scale(1.03);
+            box-shadow: 0 35px 90px rgba(229, 9, 20, 0.7);
+        }
+
+        .profile-badge {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(10px);
+            padding: 15px 30px;
+            border-radius: 30px;
+            border: 2px solid var(--netflix-red);
+            z-index: 2;
+            animation: badgeFloat 3s ease-in-out infinite;
+        }
+
+        @keyframes badgeFloat {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(-10px); }
+        }
+
+        .profile-badge p {
+            margin: 0;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--netflix-red);
         }
 
         .contact-links {
@@ -560,26 +615,6 @@
             gap: 20px;
             flex-wrap: wrap;
             margin-top: 30px;
-        }
-
-        .resume-placeholder {
-            background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
-            padding: 60px;
-            border-radius: 10px;
-            text-align: center;
-            border: 2px dashed var(--netflix-red);
-        }
-
-        .resume-placeholder h4 {
-            color: var(--netflix-red);
-            font-size: 1.5rem;
-            margin-bottom: 20px;
-        }
-
-        .resume-placeholder p {
-            color: var(--text-gray);
-            margin-bottom: 30px;
-            line-height: 1.8;
         }
 
         /* Cards Grid */
@@ -851,12 +886,12 @@
             }
 
             .hero-image {
-                flex: 0 0 280px;
+                flex: 0 0 300px;
             }
 
-            .profile-img {
-                width: 280px;
-                height: 360px;
+            .profile-container {
+                width: 300px;
+                height: 380px;
             }
 
             .contact-links,
@@ -950,7 +985,7 @@
                             <button class="cta-btn">🔗 GitHub Profiles</button>
                             <div class="github-dropdown-content">
                                 <a href="https://github.com/mishalscripts" target="_blank">📂 mishalscripts</a>
-                                <a href="https://github.com/M-A-Mohammed-Mishal" target="_blank">📂 M-A-Mohammed-Mishal</a>
+                                <a href="https://github.com/MishalHQ" target="_blank">📂 MishalHQ</a>
                             </div>
                         </div>
                         <a href="#resume" class="cta-btn secondary">📄 View Resume</a>
@@ -958,7 +993,12 @@
                 </div>
 
                 <div class="hero-image">
-                    <img src="https://nyc3.digitaloceanspaces.com/bhindi-drive/files/1278d860-2d54-4e85-8744-f8f7f78be713/2025-12-06T14-05-45-028Z-5e88f96c-chat-image-1765029944997-0.jpg" alt="M A Mohammed Mishal" class="profile-img">
+                    <div class="profile-container">
+                        <img src="https://nyc3.digitaloceanspaces.com/bhindi-drive/files/1278d860-2d54-4e85-8744-f8f7f78be713/2025-12-06T14-05-45-028Z-5e88f96c-chat-image-1765029944997-0.jpg" alt="M A Mohammed Mishal" class="profile-img">
+                        <div class="profile-badge">
+                            <p>✨ Available for Opportunities</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -971,27 +1011,15 @@
                 <h3>Resume Preview</h3>
                 <p style="text-align: center; color: var(--text-gray); margin-bottom: 30px;">View and download my complete professional resume</p>
                 
-                <!-- PDF Viewer - Replace the src with your actual resume PDF URL -->
-                <div class="resume-placeholder">
-                    <h4>📄 Upload Your Resume PDF</h4>
-                    <p>To display your resume here, please follow these steps:</p>
-                    <ol style="text-align: left; max-width: 600px; margin: 0 auto 30px; color: var(--text-gray);">
-                        <li style="margin-bottom: 10px;">Upload your resume PDF to your GitHub repository (mishalscripts/mishal-portfolio)</li>
-                        <li style="margin-bottom: 10px;">Name it <code style="background: #000; padding: 2px 8px; border-radius: 3px; color: var(--netflix-red);">resume.pdf</code></li>
-                        <li style="margin-bottom: 10px;">The PDF will automatically display here</li>
-                    </ol>
-                    <p style="font-size: 0.9rem; color: #666;">Once uploaded, your resume will be viewable and downloadable by visitors</p>
-                </div>
-
-                <!-- Uncomment this when you upload your resume.pdf -->
-                <!-- <iframe 
-                    src="https://mishalscripts.github.io/mishal-portfolio/resume.pdf" 
+                <!-- PDF Viewer with your actual resume -->
+                <iframe 
+                    src="https://nyc3.digitaloceanspaces.com/bhindi-drive/files/1278d860-2d54-4e85-8744-f8f7f78be713/2025-12-06T14-21-18-172Z-1b06f067-M_A_Mohammed_Mishal_Resume.pdf" 
                     class="resume-iframe"
-                    title="Resume PDF">
-                </iframe> -->
+                    title="M A Mohammed Mishal Resume">
+                </iframe>
                 
                 <div class="resume-buttons">
-                    <a href="https://mishalscripts.github.io/mishal-portfolio/resume.pdf" target="_blank" class="cta-btn" download>📥 Download PDF</a>
+                    <a href="https://nyc3.digitaloceanspaces.com/bhindi-drive/files/1278d860-2d54-4e85-8744-f8f7f78be713/2025-12-06T14-21-18-172Z-1b06f067-M_A_Mohammed_Mishal_Resume.pdf" target="_blank" class="cta-btn" download>📥 Download PDF</a>
                     <a href="https://www.linkedin.com/in/m-a-mohammed-mishal-1b473b265" target="_blank" class="cta-btn secondary">👁️ View on LinkedIn</a>
                 </div>
             </div>
@@ -1166,7 +1194,8 @@
             <!-- Recommendation Form -->
             <div class="recommendation-form">
                 <h3 style="color: var(--netflix-red); margin-bottom: 20px; text-align: center;">Send Me a Message</h3>
-                <p style="color: var(--text-gray); text-align: center; margin-bottom: 30px;">Have a project in mind or want to collaborate? Feel free to reach out!</p>
+                <p style="color: var(--text-gray); text-align: center; margin-bottom: 10px;">Have a project in mind or want to collaborate? Feel free to reach out!</p>
+                <p style="color: var(--netflix-red); text-align: center; margin-bottom: 30px; font-size: 0.95rem;">💡 If you have any recommendations or suggestions, please share them below!</p>
                 
                 <form id="recommendationForm">
                     <div class="form-group">
@@ -1185,8 +1214,8 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="message">Your Message *</label>
-                        <textarea id="message" name="message" required placeholder="Tell me about your project, idea, or just say hi..."></textarea>
+                        <label for="message">Your Message / Recommendation / Suggestion *</label>
+                        <textarea id="message" name="message" required placeholder="Tell me about your project, idea, recommendation, suggestion, or just say hi..."></textarea>
                     </div>
 
                     <button type="submit" class="submit-btn">Send Message</button>
@@ -1204,7 +1233,8 @@
             <p>Game QA Tester | Information Science Engineer | AI Enthusiast</p>
             <p>📍 Bangalore, Karnataka | 📞 +91 8660455157 | ✉️ 11b51570mishal@gmail.com</p>
             <div style="margin-top: 20px;">
-                <a href="https://github.com/mishalscripts" target="_blank" style="color: var(--netflix-red); margin: 0 10px; text-decoration: none;">GitHub</a>
+                <a href="https://github.com/mishalscripts" target="_blank" style="color: var(--netflix-red); margin: 0 10px; text-decoration: none;">GitHub (mishalscripts)</a>
+                <a href="https://github.com/MishalHQ" target="_blank" style="color: var(--netflix-red); margin: 0 10px; text-decoration: none;">GitHub (MishalHQ)</a>
                 <a href="https://www.linkedin.com/in/m-a-mohammed-mishal-1b473b265" target="_blank" style="color: var(--netflix-red); margin: 0 10px; text-decoration: none;">LinkedIn</a>
             </div>
             <p style="margin-top: 20px; color: #666;">&copy; 2025 M A Mohammed Mishal. All Rights Reserved.</p>

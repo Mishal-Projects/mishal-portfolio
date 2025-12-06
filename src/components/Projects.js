@@ -4,35 +4,33 @@ import './Projects.css';
 const Projects = () => {
   const projects = [
     {
-      title: 'Echo OS',
-      description: 'A modern operating system interface built with React, featuring a desktop environment with draggable windows, file system, and applications.',
-      tech: ['React', 'TypeScript', 'CSS3']
+      title: 'Automated Attendance System',
+      description: 'A comprehensive attendance management system implementing multiple authentication methods including Face Recognition, QR Code, RFID, and Fingerprint scanning.',
+      tech: ['Python', 'OpenCV', 'Machine Learning', 'IoT'],
+      icon: '🎯'
     },
     {
-      title: 'Bhindi Platform',
-      description: 'AI-powered automation platform with 200+ integrations, enabling users to connect apps and automate workflows seamlessly.',
-      tech: ['React', 'Node.js', 'MongoDB', 'AI/ML']
+      title: 'AI-Powered Solutions',
+      description: 'Collection of AI and ML projects including predictive models, classification systems, and data analysis tools developed during internship and academic work.',
+      tech: ['Python', 'TensorFlow', 'Scikit-learn', 'Data Science'],
+      icon: '🤖'
     },
     {
-      title: 'DeFi Dashboard',
-      description: 'Comprehensive DeFi analytics dashboard tracking portfolio, yields, and market data across multiple blockchain networks.',
-      tech: ['React', 'Web3.js', 'Ethers.js', 'Chart.js']
-    },
-    {
-      title: 'NFT Marketplace',
-      description: 'Decentralized marketplace for creating, buying, and selling NFTs with smart contract integration and IPFS storage.',
-      tech: ['Next.js', 'Solidity', 'IPFS', 'Polygon']
+      title: 'Web Applications',
+      description: 'Various web applications built using modern frameworks and technologies, focusing on responsive design and user experience.',
+      tech: ['React', 'Node.js', 'MongoDB', 'Express.js'],
+      icon: '🌐'
     }
   ];
 
   return (
     <section className="projects-section" id="projects">
-      <h2 className="section-title">🎯 Projects</h2>
+      <h2 className="section-title">🎯 Featured Projects</h2>
       <div className="projects-grid">
         {projects.map((project, index) => (
           <div key={index} className="project-card">
             <div className="project-banner">
-              {project.title}
+              {project.icon} {project.title}
             </div>
             <div className="project-content">
               <h3>{project.title}</h3>

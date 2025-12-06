@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mishal - Portfolio</title>
+    <title>M.A. Mohammed Mishal - Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
@@ -18,6 +18,46 @@
             color: #fff;
             line-height: 1.6;
             overflow-x: hidden;
+        }
+
+        /* Animated Background */
+        .animated-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: #000;
+            overflow: hidden;
+        }
+
+        .bg-gradient {
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at 20% 50%, rgba(229, 9, 20, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 80%, rgba(229, 9, 20, 0.15) 0%, transparent 50%);
+            animation: moveGradient 15s ease infinite;
+        }
+
+        @keyframes moveGradient {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(-50px, -50px); }
+        }
+
+        .particle {
+            position: absolute;
+            background: rgba(229, 9, 20, 0.3);
+            border-radius: 50%;
+            animation: float 20s infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) translateX(0); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-100vh) translateX(50px); opacity: 0; }
         }
 
         /* Scroll animations */
@@ -56,7 +96,7 @@
 
         /* Header */
         header {
-            background: linear-gradient(180deg, rgba(0,0,0,0.7) 10%, transparent);
+            background: linear-gradient(180deg, rgba(0,0,0,0.9) 10%, transparent);
             padding: 1.5rem 0;
             position: fixed;
             width: 100%;
@@ -67,6 +107,7 @@
 
         header.scrolled {
             background: #000;
+            box-shadow: 0 2px 10px rgba(229, 9, 20, 0.3);
         }
 
         nav {
@@ -79,10 +120,10 @@
         }
 
         .logo {
-            font-size: 2rem;
+            font-size: 1.8rem;
             font-weight: bold;
             color: #E50914;
-            letter-spacing: -2px;
+            letter-spacing: -1px;
         }
 
         nav ul {
@@ -96,10 +137,26 @@
             text-decoration: none;
             font-size: 0.95rem;
             transition: color 0.3s;
+            position: relative;
         }
 
         nav a:hover {
             color: #E50914;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #E50914;
+            transition: width 0.3s;
+        }
+
+        nav a:hover::after {
+            width: 100%;
         }
 
         /* Hero Section */
@@ -107,26 +164,64 @@
             min-height: 100vh;
             display: flex;
             align-items: center;
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
-                        url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1920') center/cover;
             padding: 0 4%;
             position: relative;
+            margin-top: 60px;
         }
 
         .hero-content {
-            max-width: 700px;
-            animation: fadeInUp 1s ease-out;
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+            width: 100%;
         }
 
-        @keyframes fadeInUp {
+        .hero-text {
+            flex: 1;
+            animation: fadeInLeft 1s ease-out;
+        }
+
+        @keyframes fadeInLeft {
             from {
                 opacity: 0;
-                transform: translateY(50px);
+                transform: translateX(-50px);
             }
             to {
                 opacity: 1;
-                transform: translateY(0);
+                transform: translateX(0);
             }
+        }
+
+        .hero-image {
+            flex: 0 0 300px;
+            animation: fadeInRight 1s ease-out;
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .profile-photo {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid #E50914;
+            box-shadow: 0 0 30px rgba(229, 9, 20, 0.5);
+            transition: transform 0.3s;
+        }
+
+        .profile-photo:hover {
+            transform: scale(1.05);
         }
 
         .hero h1 {
@@ -136,10 +231,16 @@
             line-height: 1.1;
         }
 
+        .hero h2 {
+            font-size: 1.8rem;
+            color: #E50914;
+            margin-bottom: 1rem;
+        }
+
         .hero p {
-            font-size: 1.5rem;
+            font-size: 1.2rem;
             margin-bottom: 2rem;
-            color: #fff;
+            color: #b3b3b3;
         }
 
         .cta-buttons {
@@ -170,6 +271,7 @@
         .btn-primary:hover {
             background: #f40612;
             transform: scale(1.05);
+            box-shadow: 0 5px 20px rgba(229, 9, 20, 0.5);
         }
 
         .btn-secondary {
@@ -193,11 +295,23 @@
             font-size: 2.5rem;
             margin-bottom: 3rem;
             font-weight: 700;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: #E50914;
         }
 
         /* About Section */
         #about {
-            background: #000;
+            background: rgba(0, 0, 0, 0.5);
         }
 
         .about-content {
@@ -212,7 +326,7 @@
 
         /* Skills Section */
         #skills {
-            background: #141414;
+            background: rgba(20, 20, 20, 0.5);
         }
 
         .skills-grid {
@@ -222,7 +336,8 @@
         }
 
         .skill-card {
-            background: #1f1f1f;
+            background: rgba(31, 31, 31, 0.8);
+            backdrop-filter: blur(10px);
             padding: 2rem;
             border-radius: 8px;
             transition: all 0.3s;
@@ -230,7 +345,7 @@
         }
 
         .skill-card:hover {
-            transform: scale(1.05);
+            transform: translateY(-10px);
             border-color: #E50914;
             box-shadow: 0 8px 16px rgba(229, 9, 20, 0.3);
         }
@@ -253,7 +368,7 @@
 
         /* Projects Section */
         #projects {
-            background: #000;
+            background: rgba(0, 0, 0, 0.5);
         }
 
         .projects-grid {
@@ -263,15 +378,18 @@
         }
 
         .project-card {
-            background: #1f1f1f;
+            background: rgba(31, 31, 31, 0.8);
+            backdrop-filter: blur(10px);
             border-radius: 8px;
             overflow: hidden;
             transition: all 0.3s;
             cursor: pointer;
+            border: 2px solid transparent;
         }
 
         .project-card:hover {
-            transform: scale(1.05);
+            transform: translateY(-10px);
+            border-color: #E50914;
             box-shadow: 0 8px 16px rgba(229, 9, 20, 0.4);
         }
 
@@ -313,9 +431,39 @@
             color: #f40612;
         }
 
+        /* Recommendations Section */
+        #recommendations {
+            background: rgba(20, 20, 20, 0.5);
+        }
+
+        .recommendations-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .recommendations-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            color: #b3b3b3;
+        }
+
+        .recommendation-form {
+            background: rgba(31, 31, 31, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: 8px;
+            border: 2px solid #E50914;
+        }
+
+        .recommendation-form h3 {
+            margin-bottom: 1.5rem;
+            color: #E50914;
+        }
+
         /* Contact Section */
         #contact {
-            background: #141414;
+            background: rgba(0, 0, 0, 0.5);
         }
 
         .contact-content {
@@ -343,7 +491,8 @@
         .form-group input,
         .form-group textarea {
             padding: 1rem;
-            background: #333;
+            background: rgba(51, 51, 51, 0.8);
+            backdrop-filter: blur(10px);
             border: 1px solid #555;
             border-radius: 4px;
             color: #fff;
@@ -394,15 +543,39 @@
         }
 
         /* Responsive */
-        @media (max-width: 768px) {
+        @media (max-width: 968px) {
+            .hero-content {
+                flex-direction: column-reverse;
+                text-align: center;
+            }
+
+            .hero-image {
+                flex: 0 0 250px;
+            }
+
+            .profile-photo {
+                width: 250px;
+                height: 250px;
+            }
+
             .hero h1 {
                 font-size: 2.5rem;
             }
 
-            .hero p {
-                font-size: 1.2rem;
+            .hero h2 {
+                font-size: 1.4rem;
             }
 
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .cta-buttons {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 768px) {
             nav ul {
                 gap: 1rem;
                 font-size: 0.85rem;
@@ -419,6 +592,11 @@
     </style>
 </head>
 <body>
+    <div class="animated-bg">
+        <div class="bg-gradient"></div>
+        <div id="particles"></div>
+    </div>
+
     <header id="header">
         <nav>
             <div class="logo">Mishal</div>
@@ -427,6 +605,7 @@
                 <li><a href="#about">About</a></li>
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#projects">Projects</a></li>
+                <li><a href="#recommendations">Recommendations</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
@@ -434,15 +613,24 @@
 
     <section id="home" class="hero">
         <div class="hero-content">
-            <h1>Hi, I'm Mishal</h1>
-            <p>Full Stack Developer | AI Enthusiast | Problem Solver</p>
-            <div class="cta-buttons">
-                <a href="#contact" class="btn btn-primary">
-                    <i class="fas fa-envelope"></i> Get in Touch
-                </a>
-                <a href="https://github.com/mishalscripts" target="_blank" class="btn btn-secondary">
-                    <i class="fab fa-github"></i> GitHub
-                </a>
+            <div class="hero-text">
+                <h1>M.A. Mohammed Mishal</h1>
+                <h2>Full Stack Developer</h2>
+                <p>AI Enthusiast | Problem Solver | Building Scalable Solutions</p>
+                <div class="cta-buttons">
+                    <a href="#contact" class="btn btn-primary">
+                        <i class="fas fa-envelope"></i> Get in Touch
+                    </a>
+                    <a href="https://github.com/MishalHQ" target="_blank" class="btn btn-secondary">
+                        <i class="fab fa-github"></i> GitHub (MishalHQ)
+                    </a>
+                    <a href="https://github.com/mishalscripts" target="_blank" class="btn btn-secondary">
+                        <i class="fab fa-github"></i> GitHub (mishalscripts)
+                    </a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="https://nyc3.digitaloceanspaces.com/bhindi-drive/files/33d85974-6963-4422-bb9f-82cfad108619/2025-12-06T13-30-07-498Z-f7f60329-chat-image-1765027807479-0.jpg" alt="M.A. Mohammed Mishal" class="profile-photo">
             </div>
         </div>
     </section>
@@ -451,7 +639,7 @@
         <h2 class="section-title fade-in">About Me</h2>
         <div class="about-content fade-in">
             <p>I'm a passionate Full Stack Developer with expertise in modern web technologies. I love creating elegant solutions to complex problems and am constantly learning new technologies to stay at the forefront of web development.</p>
-            <p>With a strong foundation in both frontend and backend development, I specialize in building scalable, user-friendly applications that make a difference.</p>
+            <p>With a strong foundation in both frontend and backend development, I specialize in building scalable, user-friendly applications that make a difference. My experience spans across various technologies including React, Node.js, Python, and cloud platforms.</p>
         </div>
     </section>
 
@@ -461,32 +649,32 @@
             <div class="skill-card slide-in-left">
                 <i class="fab fa-html5"></i>
                 <h3>Frontend Development</h3>
-                <p>HTML5, CSS3, JavaScript, React, Vue.js</p>
+                <p>HTML5, CSS3, JavaScript, React, Vue.js, TypeScript</p>
             </div>
             <div class="skill-card fade-in">
                 <i class="fab fa-node-js"></i>
                 <h3>Backend Development</h3>
-                <p>Node.js, Express, Python, Django</p>
+                <p>Node.js, Express, Python, Django, FastAPI</p>
             </div>
             <div class="skill-card slide-in-right">
                 <i class="fas fa-database"></i>
                 <h3>Database</h3>
-                <p>MongoDB, PostgreSQL, MySQL</p>
+                <p>MongoDB, PostgreSQL, MySQL, Redis</p>
             </div>
             <div class="skill-card slide-in-left">
                 <i class="fab fa-git-alt"></i>
                 <h3>Version Control</h3>
-                <p>Git, GitHub, GitLab</p>
+                <p>Git, GitHub, GitLab, CI/CD</p>
             </div>
             <div class="skill-card fade-in">
                 <i class="fas fa-cloud"></i>
                 <h3>Cloud & DevOps</h3>
-                <p>AWS, Docker, CI/CD</p>
+                <p>AWS, Docker, Kubernetes, CI/CD</p>
             </div>
             <div class="skill-card slide-in-right">
-                <i class="fas fa-mobile-alt"></i>
-                <h3>Mobile Development</h3>
-                <p>React Native, Flutter</p>
+                <i class="fas fa-brain"></i>
+                <h3>AI & Machine Learning</h3>
+                <p>TensorFlow, PyTorch, NLP, Computer Vision</p>
             </div>
         </div>
     </section>
@@ -495,34 +683,34 @@
         <h2 class="section-title fade-in">Projects</h2>
         <div class="projects-grid">
             <div class="project-card fade-in">
-                <img src="https://via.placeholder.com/400x200/E50914/ffffff?text=Project+1" alt="Project 1">
+                <img src="https://via.placeholder.com/400x200/E50914/ffffff?text=E-Commerce+Platform" alt="Project 1">
                 <div class="project-info">
                     <h3>E-Commerce Platform</h3>
-                    <p>A full-stack e-commerce solution with payment integration and admin dashboard.</p>
+                    <p>A full-stack e-commerce solution with payment integration, admin dashboard, and real-time inventory management.</p>
                     <div class="project-links">
-                        <a href="#"><i class="fab fa-github"></i> Code</a>
+                        <a href="https://github.com/MishalHQ" target="_blank"><i class="fab fa-github"></i> Code</a>
                         <a href="#"><i class="fas fa-external-link-alt"></i> Live Demo</a>
                     </div>
                 </div>
             </div>
             <div class="project-card fade-in">
-                <img src="https://via.placeholder.com/400x200/141414/ffffff?text=Project+2" alt="Project 2">
+                <img src="https://via.placeholder.com/400x200/141414/ffffff?text=Task+Management" alt="Project 2">
                 <div class="project-info">
                     <h3>Task Management App</h3>
-                    <p>A collaborative task management application with real-time updates.</p>
+                    <p>A collaborative task management application with real-time updates, team collaboration, and analytics.</p>
                     <div class="project-links">
-                        <a href="#"><i class="fab fa-github"></i> Code</a>
+                        <a href="https://github.com/mishalscripts" target="_blank"><i class="fab fa-github"></i> Code</a>
                         <a href="#"><i class="fas fa-external-link-alt"></i> Live Demo</a>
                     </div>
                 </div>
             </div>
             <div class="project-card fade-in">
-                <img src="https://via.placeholder.com/400x200/E50914/ffffff?text=Project+3" alt="Project 3">
+                <img src="https://via.placeholder.com/400x200/E50914/ffffff?text=AI+Dashboard" alt="Project 3">
                 <div class="project-info">
-                    <h3>Weather Dashboard</h3>
-                    <p>A beautiful weather dashboard with forecasts and interactive maps.</p>
+                    <h3>AI-Powered Dashboard</h3>
+                    <p>An intelligent dashboard with machine learning predictions, data visualization, and automated insights.</p>
                     <div class="project-links">
-                        <a href="#"><i class="fab fa-github"></i> Code</a>
+                        <a href="https://github.com/MishalHQ" target="_blank"><i class="fab fa-github"></i> Code</a>
                         <a href="#"><i class="fas fa-external-link-alt"></i> Live Demo</a>
                     </div>
                 </div>
@@ -530,10 +718,24 @@
         </div>
     </section>
 
+    <section id="recommendations">
+        <h2 class="section-title fade-in">Recommendations</h2>
+        <div class="recommendations-content fade-in">
+            <p>Have you worked with me? I'd love to hear your feedback and recommendations!</p>
+            <div class="recommendation-form">
+                <h3>Send Your Recommendation</h3>
+                <p style="color: #b3b3b3; margin-bottom: 1rem;">Please send your recommendations to:</p>
+                <a href="mailto:11b51570mishal@gmail.com" class="btn btn-primary" style="display: inline-flex; margin: 0 auto;">
+                    <i class="fas fa-envelope"></i> 11b51570mishal@gmail.com
+                </a>
+            </div>
+        </div>
+    </section>
+
     <section id="contact">
         <h2 class="section-title fade-in">Get in Touch</h2>
         <div class="contact-content fade-in">
-            <form class="contact-form">
+            <form class="contact-form" action="mailto:11b51570mishal@gmail.com" method="post" enctype="text/plain">
                 <div class="form-group">
                     <label for="name">Name</label>
                     <input type="text" id="name" name="name" required>
@@ -555,15 +757,33 @@
 
     <footer>
         <div class="social-links">
-            <a href="https://github.com/mishalscripts" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="https://github.com/MishalHQ" target="_blank" title="GitHub - MishalHQ"><i class="fab fa-github"></i></a>
+            <a href="https://github.com/mishalscripts" target="_blank" title="GitHub - mishalscripts"><i class="fab fa-github"></i></a>
+            <a href="mailto:11b51570mishal@gmail.com"><i class="fas fa-envelope"></i></a>
             <a href="#"><i class="fab fa-linkedin"></i></a>
             <a href="#"><i class="fab fa-twitter"></i></a>
-            <a href="#"><i class="fas fa-envelope"></i></a>
         </div>
-        <p>&copy; 2024 Mishal. All rights reserved.</p>
+        <p>&copy; 2024 M.A. Mohammed Mishal. All rights reserved.</p>
     </footer>
 
     <script>
+        // Create floating particles
+        function createParticles() {
+            const container = document.getElementById('particles');
+            for (let i = 0; i < 30; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.width = Math.random() * 4 + 2 + 'px';
+                particle.style.height = particle.style.width;
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 20 + 's';
+                particle.style.animationDuration = (Math.random() * 15 + 15) + 's';
+                container.appendChild(particle);
+            }
+        }
+
+        createParticles();
+
         // Header scroll effect
         window.addEventListener('scroll', () => {
             const header = document.getElementById('header');
@@ -577,7 +797,7 @@
         // Scroll animations
         const observerOptions = {
             threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
+            rootMargin: '0px 0px -100px 0px'
         };
 
         const observer = new IntersectionObserver((entries) => {
@@ -607,11 +827,14 @@
         });
 
         // Form submission
-        document.querySelector('.contact-form').addEventListener('submit', (e) => {
-            e.preventDefault();
-            alert('Thank you for your message! I will get back to you soon.');
-            e.target.reset();
-        });
+        const form = document.querySelector('.contact-form');
+        if (form && !form.hasAttribute('action')) {
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                alert('Thank you for your message! I will get back to you soon.');
+                e.target.reset();
+            });
+        }
     </script>
 </body>
 </html>

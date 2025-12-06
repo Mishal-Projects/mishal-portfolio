@@ -10,29 +10,39 @@ const Hero = () => {
           <h1>
             Hi, I'm <span className="name-highlight">Mishal</span>
           </h1>
-          <p className="subtitle">Full Stack Developer & Blockchain Enthusiast</p>
+          <p className="subtitle">Information Science Engineering Student | AI Enthusiast</p>
           
           <div className="current-role">
-            🚀 Currently Building at Bhindi HQ
+            🎮 Currently: Game QA Tester @ Indium Software
           </div>
 
           <p className="summary">
-            Passionate about creating innovative solutions with modern technologies. 
-            Experienced in full-stack development, blockchain, and building scalable applications 
-            that make a difference.
+            A goal-oriented Information Science Engineering student with a passion for mastering 
+            emerging technologies. Skilled at transforming ideas into actionable projects, with a 
+            strong focus on innovation. Dedicated to building a career that merges technical 
+            expertise with real-world impact.
           </p>
 
           <div className="hero-buttons">
             <div className="github-dropdown">
               <button className="btn-primary">
-                <FaGithub /> GitHub Profiles
+                <FaGithub /> GitHub Projects
               </button>
               <div className="github-menu">
-                <a href="https://github.com/MishalHQ" target="_blank" rel="noopener noreferrer">
-                  MishalHQ (Main)
+                <a href="https://github.com/MishalScripts/Automated-Attendance-System" target="_blank" rel="noopener noreferrer">
+                  Automated Attendance System
                 </a>
-                <a href="https://github.com/MishalScripts" target="_blank" rel="noopener noreferrer">
-                  MishalScripts (Projects)
+                <a href="https://github.com/MishalScripts/Automated-Attendance-System-using-Face-Recognition" target="_blank" rel="noopener noreferrer">
+                  Face Recognition Attendance
+                </a>
+                <a href="https://github.com/MishalScripts/Automated-Attendance-System-using-QR-Code" target="_blank" rel="noopener noreferrer">
+                  QR Code Attendance
+                </a>
+                <a href="https://github.com/MishalScripts/Automated-Attendance-System-using-RFID" target="_blank" rel="noopener noreferrer">
+                  RFID Attendance
+                </a>
+                <a href="https://github.com/MishalScripts/Automated-Attendance-System-using-Fingerprint" target="_blank" rel="noopener noreferrer">
+                  Fingerprint Attendance
                 </a>
               </div>
             </div>
@@ -54,8 +64,8 @@ const Hero = () => {
             </div>
             <div className="contact-info">
               <p>📧 <a href="mailto:officialzenvomart@gmail.com">officialzenvomart@gmail.com</a></p>
+              <p>📱 <a href="tel:+919353653653">+91 9353653653</a></p>
               <p>📍 Bangalore, Karnataka, India</p>
-              <p>💼 Full Stack Developer</p>
             </div>
           </div>
         </div>

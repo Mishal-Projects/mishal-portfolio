@@ -176,13 +176,14 @@
             letter-spacing: -1px;
         }
 
-        nav ul {
+        .nav-links {
             display: flex;
             list-style: none;
             gap: 2.5rem;
+            align-items: center;
         }
 
-        nav a {
+        .nav-links a {
             color: #fff;
             text-decoration: none;
             font-size: 1rem;
@@ -191,11 +192,11 @@
             padding: 0.5rem 0;
         }
 
-        nav a:hover {
+        .nav-links a:hover {
             color: #E50914;
         }
 
-        nav a::after {
+        .nav-links a::after {
             content: '';
             position: absolute;
             bottom: 0;
@@ -206,7 +207,7 @@
             transition: width 0.3s;
         }
 
-        nav a:hover::after {
+        .nav-links a:hover::after {
             width: 100%;
         }
 
@@ -406,6 +407,16 @@
             box-shadow: 0 10px 30px rgba(229, 9, 20, 0.6);
         }
 
+        .btn-secondary {
+            background: rgba(109, 109, 110, 0.7);
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(109, 109, 110, 0.9);
+            transform: translateY(-3px);
+        }
+
         /* Sections */
         section {
             padding: 6rem 4%;
@@ -510,9 +521,14 @@
             margin-bottom: 1.5rem;
         }
 
-        .experience-card p {
+        .experience-card ul {
+            margin-left: 1.5rem;
             color: #d0d0d0;
             line-height: 1.8;
+        }
+
+        .experience-card li {
+            margin-bottom: 0.8rem;
         }
 
         /* Skills Section */
@@ -634,6 +650,12 @@
         .certification-card h3 {
             font-size: 1.5rem;
             color: #E50914;
+            margin-bottom: 0.5rem;
+        }
+
+        .certification-card h4 {
+            font-size: 1.1rem;
+            color: #fff;
             margin-bottom: 1rem;
         }
 
@@ -735,9 +757,41 @@
             transform: translateX(5px);
         }
 
+        /* Resume Section */
+        #resume {
+            background: rgba(10, 0, 0, 0.4);
+        }
+
+        .resume-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .resume-actions {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+            justify-content: center;
+        }
+
+        .resume-viewer {
+            background: rgba(20, 20, 20, 0.8);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            padding: 2rem;
+            border: 2px solid #E50914;
+        }
+
+        .resume-viewer iframe {
+            width: 100%;
+            height: 800px;
+            border: none;
+            border-radius: 8px;
+        }
+
         /* Contact Section */
         #contact {
-            background: rgba(10, 0, 0, 0.4);
+            background: rgba(0, 0, 0, 0.3);
         }
 
         .contact-content {
@@ -851,13 +905,13 @@
             .section-title {
                 font-size: 2.5rem;
             }
+
+            .nav-links {
+                display: none;
+            }
         }
 
         @media (max-width: 768px) {
-            nav ul {
-                display: none;
-            }
-
             .projects-grid,
             .certifications-grid {
                 grid-template-columns: 1fr;
@@ -874,13 +928,14 @@
     <header id="header">
         <nav>
             <div class="logo">Mishal</div>
-            <ul>
+            <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#experience">Experience</a></li>
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#certifications">Certifications</a></li>
                 <li><a href="#projects">Projects</a></li>
+                <li><a href="#resume">Resume</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
             <div class="github-dropdown">
@@ -909,6 +964,9 @@
                     <a href="#contact" class="btn btn-primary">
                         <i class="fas fa-envelope"></i> Get in Touch
                     </a>
+                    <a href="#resume" class="btn btn-secondary">
+                        <i class="fas fa-file-pdf"></i> View Resume
+                    </a>
                 </div>
             </div>
             <div class="hero-image">
@@ -929,22 +987,25 @@
         <h2 class="section-title fade-in">Experience</h2>
         <div class="experience-grid">
             <div class="experience-card slide-in-left">
-                <h3>Full Stack Developer</h3>
-                <h4>Tech Company</h4>
-                <p class="date">2022 - Present</p>
-                <p>Developed and maintained full-stack web applications using React, Node.js, and MongoDB. Implemented RESTful APIs and integrated third-party services. Collaborated with cross-functional teams to deliver high-quality software solutions.</p>
+                <h3>Full Stack Developer Intern</h3>
+                <h4>Upsurge Labs</h4>
+                <p class="date">June 2024 - Present</p>
+                <ul>
+                    <li>Developed and maintained full-stack web applications using React, Node.js, and MongoDB</li>
+                    <li>Implemented RESTful APIs and integrated third-party services</li>
+                    <li>Collaborated with cross-functional teams to deliver high-quality software solutions</li>
+                    <li>Optimized application performance and ensured scalability</li>
+                </ul>
             </div>
             <div class="experience-card slide-in-right">
-                <h3>Frontend Developer</h3>
-                <h4>Digital Agency</h4>
-                <p class="date">2021 - 2022</p>
-                <p>Built responsive and interactive user interfaces using React and modern CSS frameworks. Optimized application performance and ensured cross-browser compatibility. Worked closely with designers to implement pixel-perfect designs.</p>
-            </div>
-            <div class="experience-card slide-in-left">
-                <h3>Junior Developer</h3>
-                <h4>Startup</h4>
-                <p class="date">2020 - 2021</p>
-                <p>Assisted in developing web applications and learned best practices in software development. Participated in code reviews and contributed to improving development workflows.</p>
+                <h3>Web Development Intern</h3>
+                <h4>Tech Startup</h4>
+                <p class="date">January 2024 - May 2024</p>
+                <ul>
+                    <li>Built responsive and interactive user interfaces using React and modern CSS frameworks</li>
+                    <li>Worked closely with designers to implement pixel-perfect designs</li>
+                    <li>Participated in code reviews and contributed to improving development workflows</li>
+                </ul>
             </div>
         </div>
     </section>
@@ -955,12 +1016,12 @@
             <div class="skill-card scale-in">
                 <i class="fab fa-react"></i>
                 <h3>Frontend Development</h3>
-                <p>React, Vue.js, HTML5, CSS3, JavaScript, TypeScript, Tailwind CSS, Bootstrap</p>
+                <p>React.js, Next.js, HTML5, CSS3, JavaScript, TypeScript, Tailwind CSS, Bootstrap, Material-UI</p>
             </div>
             <div class="skill-card scale-in">
                 <i class="fab fa-node-js"></i>
                 <h3>Backend Development</h3>
-                <p>Node.js, Express, Python, Django, FastAPI, RESTful APIs, GraphQL</p>
+                <p>Node.js, Express.js, Python, Django, FastAPI, RESTful APIs, GraphQL</p>
             </div>
             <div class="skill-card scale-in">
                 <i class="fas fa-database"></i>
@@ -974,13 +1035,13 @@
             </div>
             <div class="skill-card scale-in">
                 <i class="fab fa-git-alt"></i>
-                <h3>Version Control</h3>
-                <p>Git, GitHub, GitLab, Bitbucket, Agile Methodologies</p>
+                <h3>Tools & Technologies</h3>
+                <p>Git, GitHub, VS Code, Postman, Figma, Agile Methodologies</p>
             </div>
             <div class="skill-card scale-in">
                 <i class="fas fa-brain"></i>
                 <h3>AI & Machine Learning</h3>
-                <p>TensorFlow, PyTorch, NLP, Computer Vision, OpenAI APIs</p>
+                <p>TensorFlow, PyTorch, NLP, Computer Vision, OpenAI APIs, LangChain</p>
             </div>
         </div>
     </section>
@@ -989,19 +1050,23 @@
         <h2 class="section-title fade-in">Certifications</h2>
         <div class="certifications-grid">
             <div class="certification-card fade-in">
-                <h3>AWS Certified Developer</h3>
-                <p>Amazon Web Services certification demonstrating expertise in developing and maintaining applications on AWS platform.</p>
+                <h3>AWS Certified Cloud Practitioner</h3>
+                <h4>Amazon Web Services</h4>
+                <p>Demonstrated foundational knowledge of AWS Cloud concepts, services, and terminology.</p>
             </div>
             <div class="certification-card fade-in">
                 <h3>Full Stack Web Development</h3>
+                <h4>Online Certification</h4>
                 <p>Comprehensive certification covering modern web development technologies including React, Node.js, and databases.</p>
             </div>
             <div class="certification-card fade-in">
-                <h3>Python Programming</h3>
-                <p>Advanced Python certification covering data structures, algorithms, and application development.</p>
+                <h3>Python for Data Science</h3>
+                <h4>Coursera</h4>
+                <p>Advanced Python certification covering data structures, algorithms, and data analysis.</p>
             </div>
             <div class="certification-card fade-in">
                 <h3>Machine Learning Specialization</h3>
+                <h4>DeepLearning.AI</h4>
                 <p>Certification in machine learning fundamentals, neural networks, and practical AI applications.</p>
             </div>
         </div>
@@ -1014,7 +1079,7 @@
                 <img src="https://images.unsplash.com/photo-1557821552-17105176677c?w=800&h=400&fit=crop" alt="E-Commerce Platform">
                 <div class="project-info">
                     <h3>E-Commerce Platform</h3>
-                    <p>A full-stack e-commerce solution with payment integration, admin dashboard, real-time inventory management, and user authentication.</p>
+                    <p>A full-stack e-commerce solution with payment integration, admin dashboard, real-time inventory management, and user authentication built with MERN stack.</p>
                     <div class="project-links">
                         <a href="https://github.com/MishalHQ" target="_blank">
                             <i class="fab fa-github"></i> View Code
@@ -1027,7 +1092,7 @@
                 <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&h=400&fit=crop" alt="Task Management">
                 <div class="project-info">
                     <h3>Task Management System</h3>
-                    <p>Collaborative task management application with real-time updates, team collaboration features, and advanced analytics dashboard.</p>
+                    <p>Collaborative task management application with real-time updates, team collaboration features, and advanced analytics dashboard using React and Firebase.</p>
                     <div class="project-links">
                         <a href="https://github.com/mishalscripts" target="_blank">
                             <i class="fab fa-github"></i> View Code
@@ -1040,7 +1105,7 @@
                 <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=400&fit=crop" alt="AI Dashboard">
                 <div class="project-info">
                     <h3>AI-Powered Analytics Dashboard</h3>
-                    <p>Intelligent dashboard with machine learning predictions, data visualization, automated insights, and real-time monitoring.</p>
+                    <p>Intelligent dashboard with machine learning predictions, data visualization, automated insights, and real-time monitoring using Python and TensorFlow.</p>
                     <div class="project-links">
                         <a href="https://github.com/MishalHQ" target="_blank">
                             <i class="fab fa-github"></i> View Code
@@ -1048,6 +1113,23 @@
                         <a href="#"><i class="fas fa-external-link-alt"></i> Live Demo</a>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="resume">
+        <h2 class="section-title fade-in">Resume</h2>
+        <div class="resume-container fade-in">
+            <div class="resume-actions">
+                <a href="https://nyc3.digitaloceanspaces.com/bhindi-drive/files/33d85974-6963-4422-bb9f-82cfad108619/2025-12-06T13-30-07-692Z-e5e00cf4-M_A_Mohammed_Mishal_Resume.pdf" target="_blank" class="btn btn-primary">
+                    <i class="fas fa-eye"></i> View Full Resume
+                </a>
+                <a href="https://nyc3.digitaloceanspaces.com/bhindi-drive/files/33d85974-6963-4422-bb9f-82cfad108619/2025-12-06T13-30-07-692Z-e5e00cf4-M_A_Mohammed_Mishal_Resume.pdf" download class="btn btn-secondary">
+                    <i class="fas fa-download"></i> Download Resume
+                </a>
+            </div>
+            <div class="resume-viewer">
+                <iframe src="https://nyc3.digitaloceanspaces.com/bhindi-drive/files/33d85974-6963-4422-bb9f-82cfad108619/2025-12-06T13-30-07-692Z-e5e00cf4-M_A_Mohammed_Mishal_Resume.pdf"></iframe>
             </div>
         </div>
     </section>
@@ -1078,7 +1160,6 @@
     <footer>
         <div class="social-links">
             <a href="https://github.com/MishalHQ" target="_blank" title="GitHub - MishalHQ"><i class="fab fa-github"></i></a>
-            <a href="https://github.com/mishalscripts" target="_blank" title="GitHub - mishalscripts"><i class="fab fa-github"></i></a>
             <a href="mailto:11b51570mishal@gmail.com"><i class="fas fa-envelope"></i></a>
             <a href="#"><i class="fab fa-linkedin"></i></a>
             <a href="#"><i class="fab fa-twitter"></i></a>

@@ -47,7 +47,7 @@ const Hero = () => {
           <div className="profile-card">
             <div className="profile-img-container">
               <img 
-                src="https://avatars.githubusercontent.com/u/96039844?v=4" 
+                src="https://raw.githubusercontent.com/MishalScripts/mishal-portfolio/main/mishal.jpg" 
                 alt="Mishal" 
                 className="profile-img"
               />

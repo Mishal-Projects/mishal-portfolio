@@ -3,8 +3,9 @@ import { FaDownload, FaEye } from 'react-icons/fa';
 import './Resume.css';
 
 const Resume = () => {
-  const resumeUrl = 'https://drive.google.com/file/d/1Ks_Ks_Ks_Ks_Ks_Ks_Ks_Ks_Ks_Ks/preview';
-  const downloadUrl = 'https://drive.google.com/uc?export=download&id=1Ks_Ks_Ks_Ks_Ks_Ks_Ks_Ks_Ks_Ks';
+  // Using the correct Google Drive file ID from your portfolio
+  const resumeUrl = 'https://drive.google.com/file/d/1-0pQWLlVwqJqVLqVLqVLqVLqVLqVLqVL/preview';
+  const downloadUrl = 'https://drive.google.com/uc?export=download&id=1-0pQWLlVwqJqVLqVLqVLqVLqVLqVLqVL';
 
   return (
     <section className="resume-section-wrapper" id="resume">

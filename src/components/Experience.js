@@ -4,25 +4,25 @@ import './Experience.css';
 const Experience = () => {
   const experiences = [
     {
-      title: 'Full Stack Developer',
-      company: 'Bhindi HQ',
-      duration: '2024 - Present',
+      title: 'Game QA Tester',
+      company: 'Indium Software',
+      duration: 'Nov 2024 - Present',
       responsibilities: [
-        'Building innovative AI-powered solutions and automation tools',
-        'Developing full-stack applications with React, Node.js, and modern technologies',
-        'Implementing blockchain integrations and Web3 features',
-        'Collaborating with cross-functional teams to deliver high-quality products'
+        'Conducting comprehensive testing of gaming applications to identify bugs, glitches, and performance issues',
+        'Collaborating with development teams to ensure high-quality game releases',
+        'Documenting test cases and providing detailed bug reports',
+        'Participating in regression testing and quality assurance processes'
       ]
     },
     {
-      title: 'Blockchain Developer',
-      company: 'Freelance',
-      duration: '2023 - 2024',
+      title: 'Intern - Artificial Intelligence',
+      company: 'Verzeo',
+      duration: 'Jun 2023 - Aug 2023',
       responsibilities: [
-        'Developed smart contracts using Solidity for Ethereum and EVM-compatible chains',
-        'Built decentralized applications (dApps) with Web3.js and Ethers.js',
-        'Implemented DeFi protocols and NFT marketplaces',
-        'Conducted security audits and optimized gas efficiency'
+        'Developed and implemented machine learning models for real-world applications',
+        'Worked on data preprocessing, feature engineering, and model optimization',
+        'Collaborated with cross-functional teams on AI-driven projects',
+        'Gained hands-on experience with Python, TensorFlow, and scikit-learn'
       ]
     }
   ];
